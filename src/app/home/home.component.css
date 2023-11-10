@@ -1,0 +1,132 @@
+:root
+{
+    --main-color:#000;
+    --sec-color:rgba(239, 171, 0, 0.576);
+    --light-color:#F6F6F6;
+    --shadow: rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+    --font-family: 'DM Sans', sans-serif;
+    --rating-color:#ffc908;
+}
+
+
+.login,
+.register {
+    border-bottom: 2px solid;
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 3.4375rem;
+    text-transform: uppercase;
+}
+
+.bg-light-color {
+    background-color: var(--light-color);
+}
+
+.bg-sec-color {
+    background-color: var(--sec-color);
+}
+
+.icon-pass {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 20%;
+    position: absolute;
+}
+
+.star {
+    color: red;
+
+    margin: 5px 0 0 5px;
+}
+
+.af-be::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 0.5px;
+    top: 50%;
+    transform: translateX(0%);
+    left: 5%;
+
+    background-color: rgb(47, 46, 46);
+}
+
+
+.af-be::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 0.5px;
+    top: 50%;
+    /* left:20%;  */
+    left: 18%;
+    /* margin-right: 20px; */
+    transform: translateX(100%);
+
+    background-color: rgb(47, 46, 46);
+
+
+
+
+}
+
+.af-be p {
+    text-transform: lowercase;
+}
+
+.login-btn {
+    background-color: black;
+}
+
+.register-btn {
+    background-color: var(--sec-color);
+}
+
+.login-btn:hover {
+
+    background-color: var(--sec-color);
+}
+
+.register-btn:hover {
+
+    background-color: var(--main-color);
+}
+
+body.modal-open {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+  body.modal-open {
+    overflow: hidden;
+  }
+
+
+  .product .image:hover img {
+    border-radius: 5px;
+     filter: blur(5px);
+     transform: scale(1.2);
+   
+ 
+ }
+ .product .layer{
+    border-radius: 5px;
+    overflow: hidden;
+     inset: 0;
+     position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+ }
+ .image{
+    overflow: hidden;
+}
+.product img{
+    transition: all .5s .2s;
+    border-radius: 5px;
+  
+}
+.product .image:hover .layer{
+    opacity:1 ;
+  
+
+}

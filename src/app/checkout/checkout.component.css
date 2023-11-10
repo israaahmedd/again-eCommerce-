@@ -1,0 +1,16 @@
+a{
+    color:blue !important;
+}
+.border-bottom{
+    margin:60px 15px !important;
+    padding-bottom: 15px !important;
+}
+.checkedBoederImg{
+    border: 0.5px solid #d9d9d9;
+    border-radius: 15px;
+    height: 60px;
+    padding: 0;
+    position: relative;
+    width: 50px!important;
+
+}

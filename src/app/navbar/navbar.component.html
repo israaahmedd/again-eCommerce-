@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-sm navbar-light border border-bottom">
+      <div class="container-fluid ">
+        <div  class="bg-gradient d-flex align-items-center " style="width: 13%;">
+            <img src="../../assets/img/pngwing.com.png" alt="" class="w-25" >
+            <span class="fw-bolder fs-5 main-font ">Fresh Cart</span>
+      
+        </div>
+        
+
+        <div class="collapse navbar-collapse fw-semibold fs-5 main-font" id="collapsibleNavId" >
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0 " >  
+                <!-- mx-auto -->
+                <li class="nav-item  " *ngIf="isLogin">
+                    <a class="nav-link active sec-color" routerLink="home" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" routerLink="shop">shop</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" routerLink="about">about</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" routerLink="contact">contact</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" href="#">FAQ</a>
+                </li>
+                
+            </ul>
+          
+        </div>
+        <div class="collapse navbar-collapse pe-2 cursor-pointer" id="collapsibleNavId">
+            <ul class="end-ul navbar-nav ms-auto mt-2 mt-lg-0 ">
+                <!-- ms-auto -->
+                <li class="nav-item ">
+                    <i class="fa-solid fa-unlock pe-1"*ngIf="!isLogin"></i>
+                    <a #loginRegisterLink class="main-color" (click)="toggleModal()" *ngIf="!isLogin ">login/register</a> 
+                    <!-- <a routerLink="" class="main-color" *ngIf="isLogin">Log Out</a>  -->
+                    <i class="fa-solid fa-arrow-right-from-bracket" style="color: #000000;" *ngIf="isLogin" (click)="logOut()"></i>
+
+
+                 
+                
+                </li>
+                <li class="nav-item">
+                 <a routerLink="search"><i class="fa-solid fa-magnifying-glass"></i></a>   
+                </li>
+                <li class="nav-item">
+                    <i class="fa-solid fa-cart-shopping" routerLink="/cart"></i>
+                </li>
+             
+                
+            </ul>
+          
+        </div>
+  </div>
+</nav>

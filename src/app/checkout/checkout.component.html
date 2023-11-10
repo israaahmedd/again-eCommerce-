@@ -1,0 +1,41 @@
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-6 ">
+            <div class="breadcrumb-container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="sty " routerLink="/cart">cart</a>
+                        </li>
+                        <li class="breadcrumb-item active text-dark" aria-current="page">
+                            <a href="/" class="sty ">information</a>
+                        </li>
+
+                    </ol>
+                </nav>
+            </div>
+
+            <form [formGroup]="shippingAddress" (ngSubmit)="handleSubmet(shippingAddress)" class="container">
+
+                <label for="details" class="mb-1">details:</label>
+                <input type="text" formControlName="details" id="details" class="form-control mb-2"
+                    placeholder="Enter your email">
+
+                <label for="phone" class="mb-1">phone:</label>
+                <input type="tel" formControlName="phone" id="phone" class="form-control mb-2"
+                    placeholder="Enter your email">
+
+                <label for="city" class="mb-1">city:</label>
+                <input type="text" formControlName="city" id="city" class="form-control mb-2"
+                    placeholder="Enter your email">
+            </form>
+        </div>
+        <div class="col-md-6 bg-secondary-subtle">
+            <div class=" border-bottom " *ngFor="let product of cartDetails?.products">
+
+                <img [src]="product.product.imageCover" alt={{product.product.title}} style="" class="checkedBoederImg">
+            </div>
+
+
+        </div>
+    </div>

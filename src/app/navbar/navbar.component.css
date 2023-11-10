@@ -1,0 +1,34 @@
+.navbar-collapse{
+    flex-grow: 0 !important;
+
+}
+.sec-color{
+    color: var(--sec-color) !important;
+}
+
+.bg-sec-color{
+    background-color: var(--sec-color);
+}
+.end-ul li {
+    padding-left: 20px;
+    font-size: larger;
+}
+.end-ul a{
+font-weight: 600;
+line-height: 1.5rem;
+Font-size: 16px;
+}
+.main-font{
+    font-size: 1.25rem; 
+    line-height: 1.875rem;
+}
+.maim-color{
+    color: var(--main-color);
+}
+.bg-light-color{
+    background-color: var(--light-color) !important;
+}
+a:hover,li:hover{
+    color: var(--sec-color) ;
+    text-decoration: none;
+}
