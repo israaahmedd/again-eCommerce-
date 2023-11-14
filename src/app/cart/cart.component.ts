@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { ToasterService } from '../toaster.service';
+import { ProductsService } from '../products.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,8 +13,11 @@ import { ToasterService } from '../toaster.service';
 })
 export class CartComponent implements OnInit {
   cartDetails: any = null;
+  productDetails:any;
+productId:any;
+
   constructor(private _CartService: CartService,
-    private _ToasterService: ToasterService
+    private _ToasterService: ToasterService,private _ProductsService:ProductsService,private _ActivatedRoute:ActivatedRoute
   ) { }
   showSuccessToast() {
     this._ToasterService.showSuccess('the quantity has been increased');
@@ -57,6 +62,14 @@ export class CartComponent implements OnInit {
 
       ,
       error: (err) => console.log(err)
-    })
+    }),
+
+    this._ActivatedRoute.paramMap.subscribe((params)=>{
+      this.productId = params.get('id')
+        });
+        this._ProductsService.getProductsDetails(this.productId).subscribe({
+          next:(response)=> {this.productDetails=response.data,
+          console.log(this.productDetails)}
+        })
   }
 }

@@ -59,7 +59,7 @@
         <img [src]="product.product.imageCover"  alt={{product.product.title}} style="width: 150%;" >
           </li>
           <li >
-            <h5 class="fw-bold">${{cartDetails?.totalCartPrice}}</h5>
+            <h5 class="fw-bold">${{product.price}}</h5>
           </li>
           <li >
             STOCK
@@ -78,7 +78,7 @@
           </button>
           </li>
           <li >
-            TOTAL
+            {{ product.price*product.count  }}
           </li>
        
     </div>

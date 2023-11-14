@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModelService } from '../model.service';
 import { LoginService } from '../login.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,8 +14,16 @@ import { LoginService } from '../login.service';
 export class NavbarComponent {
 
   isLogin: boolean = false;
-  constructor(private _ModelService: ModelService, private _LoginService: LoginService)
+  cartNum:number=0;
+  constructor(private _ModelService: ModelService, private _LoginService: LoginService,
+    private _CartService:CartService)
    {
+    _CartService.numberOfCartItems.subscribe({
+      next:(x)=>{
+        this.cartNum=x;
+      },
+      error:(err)=>console.log(err)
+    })
     _LoginService.userData.subscribe({
       next: () => {
         if (_LoginService.userData.getValue() !== null) {
@@ -38,6 +47,6 @@ export class NavbarComponent {
   logOut(){
     this._LoginService.logOut();
   }
- 
+
  
 }

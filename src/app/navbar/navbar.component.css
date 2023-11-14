@@ -32,3 +32,13 @@ a:hover,li:hover{
     color: var(--sec-color) ;
     text-decoration: none;
 }
+.bg-yellow{
+    background-color: var(--sec-color);
+}
+.translate-middle {
+   
+    transform: translate(-50%,-50%)!important;
+}
+.cart-btn {
+    font-size: .6rem;
+}

@@ -11,43 +11,47 @@ import { ToasterService } from '../toaster.service';
 })
 export class MainhomeComponent {
 
-  products: any[] = []; 
+  products: any[] = [];
   constructor(private _ProductsService: ProductsService,
-    private _CartService:CartService,
-    private _ToasterService:ToasterService
-    ) {}
-    showSuccessToast() {
-      this._ToasterService.showSuccess('This is item has added successfuly!');
-      console.log("k")
-    }
-  
-    showErrorToast() {
-      this._ToasterService.showError('This is an error toast.');
-    }
+    private _CartService: CartService,
+    private _ToasterService: ToasterService
+  ) { }
+  showSuccessToast() {
+    this._ToasterService.showSuccess('This is item has added successfuly!');
+    console.log("k")
+  }
 
-    
-  addToCart(productId:string){
+  showErrorToast() {
+   
+    this._ToasterService.showError('This is an error toast.');
+  }
+
+
+  addToCart(productId: string) {
     this._CartService.addToCart(productId).subscribe({
-next:(response)=>{console.log(response)},
-error:(err)=>{console.log(err)}
+      next:(response) => {
+        this._CartService.numberOfCartItems.next(response.numOfCartItems),
+        console.log(response)
+      },
+      error: (err) => { console.log(err) }
     })
   }
   ngOnInit(): void {
 
 
-   
 
 
-      // this.extractedProducts = this.products.filter(product => this.desiredIds.includes(product.id));
+
+    // this.extractedProducts = this.products.filter(product => this.desiredIds.includes(product.id));
 
 
     this._ProductsService.getProducts().subscribe({
       next: (response) => this.products = response.data
 
     })
-   
-    
-    
+
+
+
   };
- 
+
 }

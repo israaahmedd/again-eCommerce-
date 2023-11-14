@@ -1,15 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, count } from 'rxjs';
-
+import { BehaviorSubject, Observable, count } from 'rxjs';
+BehaviorSubject
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  numberOfCartItems=new BehaviorSubject(0);
 headers:any={
   token:localStorage.getItem('userToken')
 }
-  constructor(private _HttpClient:HttpClient) { }
+  constructor(private _HttpClient:HttpClient) {
+   this.getLoggedUserCart().subscribe({
+    next:(response)=>{
+      this.numberOfCartItems.next(response.numOfCartItems)
+      console.log(response)
+    },
+    error:(err)=>console.log(err)
+   })
+   }
 
   addToCart(productId:string):Observable <any>{
     return this._HttpClient.post (`https://ecommerce.routemisr.com/api/v1/cart`
@@ -35,11 +44,12 @@ updateCount(productId:string,count:number):Observable<any>{
   {headers:this.headers})
 }
 
-onlinePayment(shippingAddress:any,cartId:string):Observable<any>{
-  return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:4200`, 
+onlinePayment(shippingAddress:any,productId:string):Observable<any>{
+  return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${productId}?url=http://localhost:4200`, 
   {
     
-      shippingAddress:shippingAddress
+      shippingAddress:shippingAddress,
+     
       
   
 },

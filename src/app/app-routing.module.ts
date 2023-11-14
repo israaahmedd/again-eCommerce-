@@ -12,6 +12,7 @@ import { ProductsDetailsComponent } from './products-details/products-details.co
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
+
 // import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent },
   {path: 'mainhome', component:MainhomeComponent },
   {path: 'produtsDetails/:id/mainhome', component:MainhomeComponent },
-
+{path:'signup',component:SignupComponent},
   {path: 'search/mainhome', component: MainhomeComponent },
   {path: 'home/signup', component:SignupComponent},
   {path: 'produtsDetails/:id', component:ProductsDetailsComponent},
